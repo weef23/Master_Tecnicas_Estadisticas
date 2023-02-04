@@ -28,5 +28,14 @@ permutacion = mt.factorial(5)
 print(f"El Numero de formas en que podemos ordenar un elemento es {permutacion}")
 ## La Biblioteca scipy nos provee de perm la cual nos permite hacer exactamente lo mismo que hicimos con la funcion
 ## Lambda anteriormente mencionada.
+prm = perm(4, 2)
+print(f"La permutacion 4P2 es {prm} ")
+## Nos devuelve un valor entero
+prm = perm(4, 2, exact=True)
+print(f"La permutacion 4P2 es {prm} ")
 
+## El caso m=n
+perm = perm(4, 4, exact=True)
+fact = mt.factorial(4)
+print(f"Cuando m=n 4P4 la permutacion {perm} es el factorial {fact}")
 
