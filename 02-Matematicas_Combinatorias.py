@@ -53,3 +53,5 @@ print(p_list3)
 ## Con m = n
 p_list4 = list(itertools.permutations(l, 4))
 print(p_list4)
+
+## Anteriormente abarcamos las repeticiones con combinacion ahora abordaremos las repeticiones sin combinaciones
