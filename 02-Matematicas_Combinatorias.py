@@ -42,3 +42,14 @@ print(f"Cuando m=n 4P4 la permutacion {perm} es el factorial {fact}")
 
 ### Python tambien nos permiten generar permutaciones a traves de una lista con la libreria itertools
 
+## Definimos una lista de elementos
+l = ['a', 'b', 'c', 'd']
+## A continuacion generamos el numero de ordenaciones que podemos obtener las permutacion de 2 elementos
+p_list = list(itertools.permutations(l, 2))
+print(p_list)
+## Con 3 elementos
+p_list3 = list(itertools.permutations(l, 3))
+print(p_list3)
+## Con m = n
+p_list4 = list(itertools.permutations(l, 4))
+print(p_list4)
