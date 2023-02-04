@@ -3,6 +3,7 @@
 ## En probabilidades cuando trabajamos con distribuciones especiales discretas se utilizan mucho calculos de combinatorias
 import math as mt
 from scipy.special import perm
+import itertools
 
 ### Lo primero que debemos aprender en Matematicas combinatorias es el calculo del Factorial, para ellos usamos
 ### la funcion Factorial que nos proporciona la libreria math en Python
@@ -38,4 +39,6 @@ print(f"La permutacion 4P2 es {prm} ")
 perm = perm(4, 4, exact=True)
 fact = mt.factorial(4)
 print(f"Cuando m=n 4P4 la permutacion {perm} es el factorial {fact}")
+
+### Python tambien nos permiten generar permutaciones a traves de una lista con la libreria itertools
 
