@@ -48,5 +48,24 @@ angulo_radianes = mt.radians(45) ## Convertimos 45 grados a radianes
 print(f"45 grados en radianes es {angulo_radianes}")
 angulo_grados =  mt.degrees(0.7853981633974483) ## Conversion de rad a grados.
 
-
-
+###################### OTRAS FUNCIONES EN PYTHON ###############################
+modulo = mt.fmod(3,2) ### El modulo o residuo de la division
+print(f"El modulo de la division entre 3 y 2 es {modulo}")
+cociente = mt.remainder(3,4) ## Esta funcion nos devuelve el cociente entero de la division
+print(f"El cociente entero de la division entre 3 y 2 es {cociente}")
+mdf = mt.modf(3.25) ## Separa el entero de los decimales
+print(f"El resultado es {mdf}")
+redinf = mt.floor(3.26) ## Redondea al entero mas bajo
+print(f"El resultado es {redinf}")
+redondeo = mt.ceil(3.26) ## Redondeo hacia arriba
+print(f"El resultado es {redondeo}")
+gcd = mt.gcd(24,36) ## Maximo comun divisor entre dos numeros
+print(f"El resultado es {gcd}")
+############### Funciones para comprobar numero #################
+print(f"El mumero 2.5 es finito? {mt.isfinite(2.5)}")
+print(f"El mumero 2.5 es infinito? {mt.isinf(2.5)}")
+print(f"El numero es nan? {mt.isnan(3)}")
+## En computacion cuando trabajamos con numeros decimales trabajamos con aproximaciones
+## Es realmente la raiz cuadrada de 2 elevado al cuadrado 2? no realmente pero
+## Con la funcion isclose podemos medir si se aproxima o no, esto es util con valores continuos.
+print(f"Es la raiz cuadrada de 2 elevado al cuadrado 2? {mt.isclose(mt.sqrt(2)**2,2,rel_tol=1e-09)}")
