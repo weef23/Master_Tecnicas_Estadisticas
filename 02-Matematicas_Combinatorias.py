@@ -3,6 +3,7 @@
 ## En probabilidades cuando trabajamos con distribuciones especiales discretas se utilizan mucho calculos de combinatorias
 import math as mt
 from scipy.special import perm
+from scipy.special import  comb
 import itertools
 
 ### Lo primero que debemos aprender en Matematicas combinatorias es el calculo del Factorial, para ellos usamos
@@ -54,4 +55,62 @@ print(p_list3)
 p_list4 = list(itertools.permutations(l, 4))
 print(p_list4)
 
+
 ## Anteriormente abarcamos las repeticiones con combinacion ahora abordaremos las repeticiones sin combinaciones
+## Sin embargo que pasa si queremos calcular el numero de repeticiones por cada elemento.
+## Python como tal Python no nos proporciona una funcion para calcular permutaciones con repeticion pero
+## Podemos partir de la siguiente formula Pa,b,c.... = n!/a!b!c!....
+## Donde n es el numero de observaciones a el numero de veces que aparece el elemento a, b el numero de elementos que
+## Aparece b y c el numero de veces que aparece c
+
+### Pasamos el numero de elementos y un parametro que corresponde a una lista dinamica
+def permutacione_con_repeticion(n, *elemetos):
+    ### La productoria de los factoriales de cada elemento corresponde al denominador de la formula
+    ### Basicamente es la multiplicacion de cada uno de los factoriales de cada elemento
+    productoria = 1
+    for i in elemetos:
+        productoria *= mt.factorial(i)
+
+    return mt.factorial(n)/productoria
+
+## Ahora probamos la funcion calculando el numero de palabras que podemos crear con la palabra BANANA
+b = 1 ## Representa el numero de veces en que aparece la letra b
+a = 3 ## Representa el numero de veces que aparece la letra a
+c = 2 ## Representa el numero de veces que aparece la letra n
+n = 6 ## representa el numero total de observaciones
+
+nPabc = permutacione_con_repeticion(n, a, b, c)
+print(f"El numero de palabras a formar con la palabra Banana es : {nPabc}")
+
+#### USO DE COMBINACIONES EN PYTHON, Las combinaciones en Python corresponden al numero de subconjuntos que podemos
+#### Generar con los elementos de un conjuntos, en Estadistica se utilizan como coeficientes binomiales en la
+### Mayoria de distribuciones discretas nCm se describe mediante la formula  n!/m!(n!-m!)
+
+## Con la siguiente funcion podemos calcular la combinacion de nCm
+combinacion_count = lambda n, m: mt.factorial(n)//(mt.factorial(m) * mt.factorial(n-m))
+
+#### Calculamos 4C2
+comb1 = combinacion_count(4,2)
+print(f"La combinacion de 4, 2 es {comb1}")
+
+### La libreria scipy tambien nos proporociona un metodo para calcular las combinatorias entre elementos
+print(f"La combinacion de 4, 2 es {comb(4,2, exact=True)}")
+
+## Si usamos el parametro true nos traera las combinaciones con repeticion lo cual es particularmente interesante
+print(f"La combinacion con repeticion de 4C2 es {comb(4, 2, exact=True, repetition=True)}")
+
+### Tambien es posible generar las combinaciones a partir de una lista, lo que resultaria particularmente util
+## Usando la lista l que definimos para la generacion de permutaciones a partir de una lista
+
+## Estamamos generando los conjuntos de 2 elementos que podemos formar con l
+comb_list = list(itertools.combinations(l, 2))
+print(comb_list)
+
+## Si los queremos con repeticion entonces podemos usar esta funcion de itertools
+comb_list_rep = list(itertools.combinations_with_replacement(l, 2))
+print(comb_list_rep)
+
+pos = ['C', 'T']
+comb_list_rep = list(itertools.combinations_with_replacement(pos, 3))
+print(comb_list_rep)
+
