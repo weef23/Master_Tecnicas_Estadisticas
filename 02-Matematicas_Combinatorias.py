@@ -3,7 +3,7 @@
 ## En probabilidades cuando trabajamos con distribuciones especiales discretas se utilizan mucho calculos de combinatorias
 import math as mt
 from scipy.special import perm
-from scipy.special import  comb
+from scipy.special import comb
 import itertools
 
 ### Lo primero que debemos aprender en Matematicas combinatorias es el calculo del Factorial, para ellos usamos
